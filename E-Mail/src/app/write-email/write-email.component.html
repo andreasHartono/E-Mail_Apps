@@ -1,0 +1,30 @@
+
+<ion-app>
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>Tulis E-mail</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [fullscreen]="true">
+    <ion-item>
+      <ion-label position="floating">To</ion-label>
+      <ion-input [(ngModel)]="toEmail" name="toEmail" placeholder="abc@email.com"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Subject</ion-label>
+      <ion-input placeholder="Subject" [(ngModel)]="subject" name="subject"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Content</ion-label>
+      <ion-textarea placeholder="Write message here" [(ngModel)]="content" name="content"></ion-textarea>
+      <section>
+        <ion-img src="{{ urlImage }}"></ion-img>
+        <ion-button expand="block" (click)="captureImage()">Capture Image</ion-button>
+      </section>    
+      <section>
+        <ion-button expand="block" (click)="sendEmail()" routerLink="/">Send</ion-button>
+      </section>
+    </ion-item>
+  </ion-content>
+</ion-app>

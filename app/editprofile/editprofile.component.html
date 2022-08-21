@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edit Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-input name="first" type="text" placeholder="First Name" [(ngModel)]="firstName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input name="last" type="text" placeholder="Last Name" [(ngModel)]="lastName"></ion-input>
+    </ion-item>
+  </ion-list>
+  <section>
+    <ion-button expand="block" (click)=editProfile()>Ubah</ion-button>
+  </section>
+</ion-content>

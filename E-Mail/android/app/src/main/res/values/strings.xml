@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">tes_ionic_1</string>
+    <string name="title_activity_main">tes_ionic_1</string>
+    <string name="package_name">com.ubaya.tes1</string>
+    <string name="custom_url_scheme">com.ubaya.tes1</string>
+</resources>

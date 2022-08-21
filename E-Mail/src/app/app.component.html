@@ -1,0 +1,125 @@
+<ion-app *ngIf="!user_id && !registerUser">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-card>
+      <ion-item>
+        <ion-input name="email" type="email" placeholder="your@email.com" [(ngModel)]='login_user'>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input name="password" type="password" placeholder="Password" [(ngModel)]='login_password'>
+        </ion-input>
+      </ion-item>
+      <ion-button type="submit" expand="block" (click)='login()'>Login</ion-button>
+      <ion-button type="submit" expand="block" (click)='register()'>Register</ion-button>
+      <ion-chip *ngIf="login_error">{{login_error}}</ion-chip>
+    </ion-card>
+  </ion-content>
+</ion-app>
+
+<ion-app *ngIf="registerUser">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Register</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-card>
+      <ion-item>
+        <ion-input name="first" type="text" placeholder="first_name" [(ngModel)]='first'>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input name="last" type="text" placeholder="last_name" [(ngModel)]='last'>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input name="email" type="email" placeholder="your@email.com" [(ngModel)]='user_email'>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input name="password" type="password" placeholder="Password" [(ngModel)]='user_pass'>
+        </ion-input>
+      </ion-item>
+      <ion-button type="submit" expand="block" (click)='insert()'>Register</ion-button>
+      <ion-button type="submit" expand="block" (click)='back()'>Back</ion-button>
+      <ion-chip *ngIf="login_error">{{login_error}}</ion-chip>
+    </ion-card>
+  </ion-content>
+</ion-app>
+
+<ion-app *ngIf="user_id">
+  <ion-menu content-id="content">
+    <ion-header>
+      <!-- <ion-toolbar>
+        <ion-title>E-Mail</ion-title>
+      </ion-toolbar> -->
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-list-header>E-Mail</ion-list-header>
+        <ion-menu-toggle>
+          <ion-item>
+            <ion-icon name="home-outline" slot="start"></ion-icon>
+            <ion-label routerLink="/" (click)="homeClick()">Home</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="mail-outline" slot="start"></ion-icon>
+            <ion-label routerLink="/list" (click)="defaultClick()">Inbox</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="pencil-outline" slot="start"></ion-icon>
+            <ion-label routerLink="/write/'',''" (click)="defaultClick()">Write Email</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="send-outline" slot="start"></ion-icon>
+            <ion-label routerLink="/sent" (click)="defaultClick()">Sent</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="star-outline" slot="start"></ion-icon>
+            <ion-label routerLink="/favorite" (click)="defaultClick()">Favorite</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="log-out-outline" slot="start"></ion-icon>
+            <ion-label (click)="logout()">Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button autoHide="false"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>E-mail</ion-title>
+      <!-- <ion-title>Welcome to E-mail Application</ion-title> -->
+      <!-- <div class="search-box">
+        <ion-buttons slot="start">
+          <ion-menu-button autoHide="false"></ion-menu-button>
+        </ion-buttons>
+        <ion-input placeholder="Search E-Mail"></ion-input>
+        <ion-avatar>
+          <img src="/assets/shapes.svg" alt="">
+        </ion-avatar>
+      </div> -->
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <router-outlet id="content"></router-outlet>
+    <h1 *ngIf="item == 1" style="text-align: center;">Welcome To Email Application</h1>
+
+    <app-profile *ngIf="item == 1"></app-profile>
+    <ion-button *ngIf="item == 1" routerLink="/editprofile" (click)="defaultClick()" size="large" expand="block" color="light"><ion-icon name="person-circle-outline" slot="start"></ion-icon>Edit Profile</ion-button>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="light" *ngIf="item == 1">
+        <ion-icon  name="add" routerLink="/write/'',''" (click)="defaultClick()"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-content>
+</ion-app>

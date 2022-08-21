@@ -1,0 +1,10 @@
+<br>
+<ion-card *ngFor="let mail of email; let i = index;">
+  <ion-card-content>
+    <!-- <ion-chip>{{i+1}}</ion-chip> -->
+    <h4 [ngStyle]="{'font-size': fontSize + 'pt'}" ><b>{{mail.subject}}</b></h4><br>
+    <ion-img src="{{mail.file}}"  >
+    </ion-img><br>
+    <ion-button color='primary' routerLink='/detail/{{mail.id}}'>detail</ion-button>
+  </ion-card-content>
+</ion-card>
